@@ -351,8 +351,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (descritoresContainer) {
         descritoresContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('btn')) {
-                const codigo = e.target.dataset.codigo;
                 const tipo = e.target.dataset.tipo;
+
+                // Desativa o botão "Games"
+                if (tipo === 'games') return;
+
+                const codigo = e.target.dataset.codigo;
                 mostrarModal(codigo, tipo);
             }
         });
